@@ -7,13 +7,13 @@ Installation
 
 1)Clone the repository:
 
-   - bash
+    - bash
 
     - git clone https://github.com/Carol757/goapi.git
 
 2)Navigate to the project directory:
 
-    -cd goapi
+    - cd goapi
 
 3)Install the required dependencies:
 
