@@ -30,7 +30,6 @@ type Receipt struct{
 }
 type  ID struct{
     ID string `json:"id"` 
-	
 }
 type  Points struct{
      Points int `json:"points"`
@@ -70,7 +69,6 @@ func lookUp(k string) int {
 
 func getID(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
@@ -119,7 +117,6 @@ func getPointsByID(w http.ResponseWriter, r *http.Request){
     }
 
 	points.Points = lookUp(id)
-	
 	json.NewEncoder(w).Encode(points)
 }
 
@@ -162,31 +159,31 @@ func getPoints(Retailer string, total string, Items []Items, PurchaseDate string
 	*/
 	for i := 0; i < len(Items); i++ {
 
-			if (len(strings.TrimSpace(Items[i].ShortDescription))%3==0){
-				price_int, err := strconv.ParseFloat(Items[i].Price, 64) 
-				if err != nil {
-				fmt.Println(err)
-				return 0
-				}
-				sum=sum+int(math.Ceil(price_int*0.2))
+		if (len(strings.TrimSpace(Items[i].ShortDescription))%3==0){
+			price_int, err := strconv.ParseFloat(Items[i].Price, 64) 
+			if err != nil {
+			fmt.Println(err)
+			return 0
 			}
+			sum=sum+int(math.Ceil(price_int*0.2))
+		}
 	}
 
 	/*
 		6 points if the day in the purchase date is odd.
 	*/
-		if (isDayOdd(PurchaseDate)){
-			sum+=6
-		}
+	if (isDayOdd(PurchaseDate)){
+		sum+=6
+	}
 
 	/*
 		10 points if the time of purchase is after 2:00pm and before 4:00pm.
 	*/
-		if(isTimeRange(PurchaseTime)){
-			sum+=10
-		}
+	if(isTimeRange(PurchaseTime)){
+		sum+=10
+	}
 		
-		return sum
+	return sum
 }
 
 /*
@@ -206,7 +203,6 @@ func countAlphanumeric(str string) int {
 	isDayOdd(*): Returns bool value for the day is odd or not
 */
  func isDayOdd(dateStr string) bool {
-
 	date, err := time.Parse("2006-01-02", dateStr)
 	if err != nil {
 		fmt.Println("Error parsing date:", err)
@@ -225,7 +221,7 @@ func countAlphanumeric(str string) int {
 /*
 	isTimeRange(*): Returns bool value for the condition of  time of purchase is after 2:00pm and before 4:00pm.
 */
- func isTimeRange (timeStr string) bool {
+func isTimeRange (timeStr string) bool {
 
 	t, err := time.Parse("15:04", timeStr)
 	if err != nil {
@@ -239,12 +235,12 @@ func countAlphanumeric(str string) int {
 	    return true
 	}
 	return false
- }
+}
 
 func handleRequests(){
 	myRouter := mux.NewRouter()
-	myRouter.HandleFunc("/receipts/process",getID)
-	myRouter.HandleFunc("/receipts/{id}/points",getPointsByID)
+	myRouter.HandleFunc("/receipts/process",getID)		/* POST */
+	myRouter.HandleFunc("/receipts/{id}/points",getPointsByID)		/* GET */
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
