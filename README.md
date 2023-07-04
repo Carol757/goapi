@@ -3,19 +3,19 @@
 This is a Go API application that provides [brief description of the purpose or functionality of your API].
 
 Installation
+----------------------------------------------------------------------------------------------------------------
 
-
-Clone the repository:
+1)Clone the repository:
 
 bash
 
 git clone https://github.com/Carol757/goapi.git
 
-Navigate to the project directory:
+2)Navigate to the project directory:
 
 cd goapi
 
-Install the required dependencies:
+3)Install the required dependencies:
 
 go
 
@@ -24,7 +24,7 @@ go mod download
 Usage
 
 
-Run the application:
+4)Run the application:
 
 go
 
@@ -35,7 +35,7 @@ go run main.go
 The API server will start on http://localhost:8080.
 
 
-Use a tool like cURL or Postman to interact with the API endpoints.
+5)Use a tool like cURL or Postman to interact with the API endpoints.
 
 API Endpoints
 
