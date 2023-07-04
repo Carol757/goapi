@@ -37,7 +37,7 @@ Usage
 
 API Endpoints
 ---------------
-Endpoint: Process Receipts  ### Heading 3 ###
+### Endpoint: Process Receipts ###  
 - Path: /receipts/{id}/points
 
 - Method: GET
@@ -56,7 +56,7 @@ Endpoint: Process Receipts  ### Heading 3 ###
 
     { "points": 32 }
 
-Endpoint: Get Points  ### Heading 3 ###
+ ### Endpoint: Get Points ###
 
  - Path: /receipts/process
 
