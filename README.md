@@ -22,20 +22,15 @@ go
 go mod download
 
 Usage
+----------------------------------------------------------------------------------------------------------------
 
-
-4)Run the application:
-
+1)Run the application:
 go
-
-
 go run main.go
-
-
 The API server will start on http://localhost:8080.
 
 
-5)Use a tool like cURL or Postman to interact with the API endpoints.
+2)Use a tool like cURL or Postman to interact with the API endpoints.
 
 API Endpoints
 
