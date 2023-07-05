@@ -36,6 +36,7 @@ Installation
 
     - go mod download
 
+    - go get -u github.com/gorilla/mux
 Usage
 ============= 
 
@@ -92,3 +93,10 @@ API Endpoints
  **Response:**
 
     { "id": "7fb1377b-b223-49d9-a31a-5a02701dd310" }
+
+
+Run Test Cases
+============= 
+    - bash
+
+    - go test
